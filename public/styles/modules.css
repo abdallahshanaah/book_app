@@ -1,0 +1,138 @@
+header {
+    overflow: auto;
+    padding: 1em 0 0;
+    background-color: black;
+    color: white;
+    margin-bottom: 25px;
+ 
+  }
+  
+#details{
+  border: none;
+  height: 100%;
+}
+
+#dHeader{
+  width: 350px;
+  font-size: xx-small;
+  border: none;
+}
+
+#dHeader{
+  font-size: xx-small;
+
+}
+form{
+  background-color: #848687;
+}
+
+.btns{
+  width: 30%;
+  background-color: black;
+  color: blanchedalmond;
+}
+#updateBtn{
+  display: block;
+  margin-right: 200px;
+}
+.frm{
+  display: block;
+}
+a.icon{
+  border: none;
+  width: 5px;
+  height: 5px;
+}
+
+#header{
+  font-size: smaller;
+  width: 100px;
+  height: 30px;
+  border: none;
+}
+#header h1{
+  font-size: small;
+  border: none;
+}
+
+  form {
+      width: 80%;
+      
+  }
+  
+  h1 {
+    font-family: 'Fjalla One', sans-serif;
+  }
+  
+  main input[type="text"] {
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: none;
+    text-indent: .5em;
+  }
+  
+  main label {
+    font-size: 1.5em;
+  }
+  
+  main  span {
+    margin-left: .5em; 
+    float: left;
+  }
+  
+  main  input[type="radio"] {
+    width: auto;
+    float: left;
+    margin-left: 3em
+  }
+  
+  
+  
+  li {
+    padding: 1em 3em;
+    padding-bottom: 5em;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  img, h2, h3, p {
+    margin-bottom: 1em;
+  }
+  
+  #search{
+      background-color: black;
+      color: blanchedalmond;
+  }
+
+  
+.topnav {
+  overflow: hidden;
+  background-color:black;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+.active {
+  background-color: black;
+  color: white;
+}

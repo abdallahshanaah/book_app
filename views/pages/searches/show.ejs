@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/modules.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Search Result</h1>
+    </header>
+    <main>
+        <ul>
+            <% books.forEach(book => { %>
+                <li>
+                  <img src=<%= book.img %>  />
+                  <h2><%= book.title %></h2>
+                  <h3><%= book.authors %></h3>
+                  <p><%= book.description %></p>
+                  <button class='btns' onclick="addForm()">Select Book</button> 
+                  <div class='form' >
+                    <form action='/book/<%= book.id%>' method='post'>
+                        <input type="text" name="book" placeholder="Enter a bookshelf" required>
+                        <button type="submit" class="btns">Add Book</button>
+                    </form>
+                </div>              
+                 </li>
+                <% }) %>
+        </ul>
+    </main>
+    <script>
+        $(".form").hide();
+        function addForm(){
+            $(".form").toggle();
+        }
+    </script>
+</body>
+
+</html>

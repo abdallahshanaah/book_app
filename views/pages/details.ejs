@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/modules.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body id="details">
+    <header>
+        <div class="topnav">
+            <a href="" class="active" id="dHeader"> <h1><%= book.title %></h1></a>
+            <div id="myLinks">
+              <a href="/">Home Page</a>
+              <a href="/searches/new">Search</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+    </header>
+    <section>
+    <img src=<%= book.img_url %>>
+    <p>Title: <%= book.title %></p>
+    <p>Authors: <%= book.author %></p>
+    <p>Description: <%= book.description %></p>
+    <p>ISBN: <%= book.isbn %></p>
+    <p>Bookshelf: <%= book.bookshelf %></p>
+    </section>
+    <div id="btns">
+        <button id="updateBtn" onclick="showForm()" class="btns">Update Details</button>
+        <form id="updateForm" action="/update/<%=book.id%>?_method=put" method="post" class="frm">   
+            <input type="text" name="img_url" value="<%= book.img_url %>" class="frm">
+            <input type="text" name="title" value="<%= book.title %>" class="frm">
+            <input type="text" name="author" value="<%= book.author %>" class="frm">
+            <textarea name="description" cols="30" rows="10"><%= book.description %></textarea>
+            <input type="text" name="ISBN" value="<%= book.isbn %>" class="frm">
+            <input type="text" name="bookshelf" value="<%= book.bookshelf %>">
+            <button type="submit" class="btns">Update</button>
+        </form>
+        <form id="deleteForm" action="/delete/<%=book.id%>?_method=delete" method="post" >  <!--add method and action -->
+
+            <button id="deletBtn" type="submit" class="btns">Delete Book</button>
+        </form>
+    </div>
+   <script>
+       $('#updateForm').hide();
+      function showForm(){
+        $('#updateForm').toggle();
+       }
+       function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+   </script>
+</body>
+</center>
+</html>

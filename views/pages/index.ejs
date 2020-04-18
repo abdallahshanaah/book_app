@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/icons.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/modules.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<center>
+
+<body>
+    <header>
+        <nav>
+            <div class="topnav">
+                <a href="" class="active" id="header"> <h1>Best Books!</h1></a>
+                <div id="myLinks">
+                  <a href="/">Home Page</a>
+                  <a href="/searches/new">Search</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </div>
+              
+           
+            <h3><%= count %> Saved Books</h3>
+        </nav>
+        
+    </header>
+
+    <% books.forEach(val => {%>
+    <div>
+        <img src="<%= val.img_url%>"/>
+        <h3> <%= val.title %> </h3>
+        <h4> <%= val.author %> </h4>
+        <% console.log(val.id) %>
+        <a href="/books/<%= val.id %>">Detail View</a>
+    </div>
+    <br>
+    <% }) %>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+        
+</body>
+</center>
+
+</html>
