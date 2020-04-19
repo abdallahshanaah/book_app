@@ -1,5 +1,4 @@
 'use strict';
-
 require('dotenv').config();
 const express = require('express');
 
@@ -12,24 +11,18 @@ const methodOverride = require('method-override');
 
 
 
-// static resources
 app.use(express.static('./public'));
-
-// for post
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 
-// to set the render engine
 app.set('view engine', 'ejs');
 
-//Home page
 app.get('/', (req, res) => {
   let SQL = 'SELECT * FROM books_info;';
   let numberOfSelectedBooks;
   client.query(SQL)
     .then(data => {
-      // console.log(data.rows);
       numberOfSelectedBooks=data.rows.length;
       res.render('./pages/index',{books:data.rows , count: numberOfSelectedBooks} );
     });
@@ -37,19 +30,17 @@ app.get('/', (req, res) => {
 });
 
 
-//searches/new   the Form
 app.get('/searches/new', (req,res) =>{
   res.render('pages/searches/new');
 });
 
 
-//searches    the results
 let arrofObj=[];
 app.post('/searches', (req, res) =>{
   let url;
-  console.log(req.body); // what did user choose! an object
-  console.log(req.body.search); // title or author
-  console.log(req.body.catagory); // the title or the author name
+  console.log(req.body);
+  console.log(req.body.search);
+  console.log(req.body.catagory);
 
   if (req.body.search === 'title'){
     url = `https://www.googleapis.com/books/v1/volumes?q=search+intitle:${req.body.catagory}`;
@@ -68,7 +59,6 @@ app.post('/searches', (req, res) =>{
     });
 });
 
-// add selected book to DB
 app.get('/addBook/:id',(req,res)=>{
   let unique = req.params.id;
   arrofObj.forEach(val =>{
@@ -100,7 +90,6 @@ app.post('/book/:id', (req, res)=>{
   });
 });
 
-// Get book details
 app.get('/books/:id',(request, response) =>{
   let id = request.params.id;
   let sql = 'SELECT * FROM books_info WHERE id = $1;';
@@ -158,15 +147,6 @@ function Book(data){
 }
 
 
-
-
-
-
-
-
-
-
-// erorr routes
 app.get('*',(req,res)=>{
   res.render('pages/error');
 });
